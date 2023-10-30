@@ -2,7 +2,7 @@ namespace Estacionamento.Modelos;
 
 public class Patio
 {
-
+       
     public Patio()
     {
         Faturado = 0;
@@ -41,14 +41,14 @@ public class Patio
                 v.HoraSaida = DateTime.Now;
                 TimeSpan tempoPermanencia = v.HoraSaida - v.HoraEntrada;
                 double valorASerCobrado = 0;
-                if (v.Tipo == TipoDeVeiculo.Automovel)
+                if (v.Tipo == TipoVeiculo.Automovel)
                 {
                     /// o método Math.Ceiling(), aplica o conceito de teto da matemática onde o valor máximo é o inteiro imediatamente posterior a ele.
                     /// Ex.: 0,9999 ou 0,0001 teto = 1
                     /// Obs.: o conceito de chão é inverso e podemos utilizar Math.Floor();
                     valorASerCobrado = Math.Ceiling(tempoPermanencia.TotalHours) * 2;
                 }
-                if (v.Tipo == TipoDeVeiculo.Motocicleta)
+                if (v.Tipo == TipoVeiculo.Motocicleta)
                 {
                     valorASerCobrado = Math.Ceiling(tempoPermanencia.TotalHours) * 1;
                 }
@@ -73,4 +73,22 @@ public class Patio
         return informacao;
     }
 
+    public Veiculo PesquisaVeiculoNoPatio(string placa) {
+
+        var encontrado = (from veiculo in this.Veiculos
+                          where veiculo.Placa == placa
+                          select veiculo).SingleOrDefault();
+
+        return encontrado;
+    }
+
+    public Veiculo AlterarDadosDoVeiculo(Veiculo veiculoAlterado) {
+        var veiculot = (from veiculo in this.Veiculos
+                          where veiculo.Placa == veiculoAlterado.Placa
+                          select veiculo).SingleOrDefault();
+
+        veiculot.AlterarDadosDoVeiculo(veiculoAlterado);
+        return veiculot;
+    }
 }
+

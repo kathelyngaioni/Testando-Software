@@ -6,8 +6,8 @@ public class Veiculo
     //Campos    
     private string _placa;
     private string _proprietario;
-    private TipoDeVeiculo _tipo;
-
+    private TipoVeiculo _tipo;
+     
     //Propriedades   
 
     public string Placa
@@ -67,7 +67,7 @@ public class Veiculo
     }
     public DateTime HoraEntrada { get; set; }
     public DateTime HoraSaida { get; set; }   
-    public TipoDeVeiculo Tipo { get => _tipo; set => _tipo = value; }
+    public TipoVeiculo Tipo { get => _tipo; set => _tipo = value; }
 
     //Métodos
     public void Acelerar(int tempoSeg)
@@ -79,7 +79,7 @@ public class Veiculo
     {
         this.VelocidadeAtual -= (tempoSeg * 15);
     }
-
+               
     //Construtor
     public Veiculo()
     {
@@ -90,4 +90,12 @@ public class Veiculo
     {
         Proprietario = proprietario;
     }
+
+    public void AlterarDadosDoVeiculo(Veiculo veiculoAlterado) {
+        this.Proprietario = veiculoAlterado.Proprietario;
+        this.Modelo = veiculoAlterado.Modelo;
+        this.Placa = veiculoAlterado.Placa;
+        this.Cor = veiculoAlterado.Cor;
+    }
+
 }
