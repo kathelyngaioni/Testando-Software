@@ -96,7 +96,6 @@ public class PatioTestes
       Assert.Equal(alterado.Placa, veiculoAlterado.Placa);
 
     }
-
 }
 
 

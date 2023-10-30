@@ -98,4 +98,13 @@ public class Veiculo
         this.Cor = veiculoAlterado.Cor;
     }
 
+    public override string ToString()
+    {
+        return $"Ficha do Veiculo:\n" +
+               $"Tipo do Veiculo: {this.Tipo.ToString()}\n" +
+               $"Proprietário: {this.Proprietario}\n" +
+               $"Modelo: {this.Modelo}\n" +
+               $"Cor: {this.Cor}\n" +
+               $"Placa: {this.Placa}\n";
+    }
 }

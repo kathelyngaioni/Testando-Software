@@ -41,4 +41,22 @@ public class VeiculoTestes
     public void ValidaNomeDoProprietario() {
         //implementar
     }
+
+    
+    [Fact]
+    public void DadosVeiculo() {
+
+        Veiculo carro = new Veiculo();
+        carro.Proprietario = "Kathelyn Gaioni";
+        carro.Tipo = TipoVeiculo.Automovel;
+        carro.Cor = "Azul";
+        carro.Modelo = "Fusca";
+        carro.Placa = "KOH-1234";
+
+        string dados = carro.ToString();
+
+        Assert.Contains("Ficha do Veiculo:", dados);
+
+    }
+
 }
