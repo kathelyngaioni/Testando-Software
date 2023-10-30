@@ -13,3 +13,8 @@
 /home/runner/Testando-Software/Estacionamento/obj/Debug/net6.0/Estacionamento.pdb
 /home/runner/Testando-Software/Estacionamento/obj/Debug/net6.0/Estacionamento.genruntimeconfig.cache
 /home/runner/Testando-Software/Estacionamento/obj/Debug/net6.0/ref/Estacionamento.dll
+/home/runner/Testando-Software/Estacionamento/bin/Debug/net6.0/xunit.abstractions.dll
+/home/runner/Testando-Software/Estacionamento/bin/Debug/net6.0/xunit.assert.dll
+/home/runner/Testando-Software/Estacionamento/bin/Debug/net6.0/xunit.core.dll
+/home/runner/Testando-Software/Estacionamento/bin/Debug/net6.0/xunit.execution.dotnet.dll
+/home/runner/Testando-Software/Estacionamento/obj/Debug/net6.0/Estacionamento.csproj.CopyComplete

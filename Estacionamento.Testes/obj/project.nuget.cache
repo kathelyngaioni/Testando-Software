@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "s+1A6e0tXKPW4TED8u5ulOOF0KTrWiprqdc8GZfmmoEizSbdIKiK79qSxieUxB+c+CLOQirlGnU/tjWy/1TojA==",
+  "dgSpecHash": "Luy9WtpQJ03OXcNfba4qt6fa5hoTBYfHU/nZcx3+Fy4FLJGgL2g8XVSJzfeyYmzwGEbh6uObOVKwLpnyNMZNXA==",
   "success": true,
   "projectFilePath": "/home/runner/Testando-Software/Estacionamento.Testes/Estacionamento.Testes.csproj",
   "expectedPackageFiles": [
@@ -88,13 +88,13 @@
     "/home/runner/.nuget/packages/system.threading.timer/4.3.0/system.threading.timer.4.3.0.nupkg.sha512",
     "/home/runner/.nuget/packages/system.xml.readerwriter/4.3.0/system.xml.readerwriter.4.3.0.nupkg.sha512",
     "/home/runner/.nuget/packages/system.xml.xdocument/4.3.0/system.xml.xdocument.4.3.0.nupkg.sha512",
-    "/home/runner/.nuget/packages/xunit/2.5.3/xunit.2.5.3.nupkg.sha512",
+    "/home/runner/.nuget/packages/xunit/2.4.1/xunit.2.4.1.nupkg.sha512",
     "/home/runner/.nuget/packages/xunit.abstractions/2.0.3/xunit.abstractions.2.0.3.nupkg.sha512",
-    "/home/runner/.nuget/packages/xunit.analyzers/1.4.0/xunit.analyzers.1.4.0.nupkg.sha512",
-    "/home/runner/.nuget/packages/xunit.assert/2.5.3/xunit.assert.2.5.3.nupkg.sha512",
-    "/home/runner/.nuget/packages/xunit.core/2.5.3/xunit.core.2.5.3.nupkg.sha512",
-    "/home/runner/.nuget/packages/xunit.extensibility.core/2.5.3/xunit.extensibility.core.2.5.3.nupkg.sha512",
-    "/home/runner/.nuget/packages/xunit.extensibility.execution/2.5.3/xunit.extensibility.execution.2.5.3.nupkg.sha512",
+    "/home/runner/.nuget/packages/xunit.analyzers/0.10.0/xunit.analyzers.0.10.0.nupkg.sha512",
+    "/home/runner/.nuget/packages/xunit.assert/2.4.1/xunit.assert.2.4.1.nupkg.sha512",
+    "/home/runner/.nuget/packages/xunit.core/2.4.1/xunit.core.2.4.1.nupkg.sha512",
+    "/home/runner/.nuget/packages/xunit.extensibility.core/2.4.1/xunit.extensibility.core.2.4.1.nupkg.sha512",
+    "/home/runner/.nuget/packages/xunit.extensibility.execution/2.4.1/xunit.extensibility.execution.2.4.1.nupkg.sha512",
     "/home/runner/.nuget/packages/xunit.runner.visualstudio/2.4.3/xunit.runner.visualstudio.2.4.3.nupkg.sha512"
   ],
   "logs": []
