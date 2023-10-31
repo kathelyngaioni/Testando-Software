@@ -67,7 +67,7 @@ public class PatioTestes : IDisposable
 
     [Theory]
     [InlineData("Kathelyn Gaioni","KOH-1234", "Azul", "Fusca")]
-    public void LocalizaVeiculoNoPatioComBaseNaPlaca( string proprietario,
+    public void LocalizaVeiculoNoPatioComBaseNoTicket( string proprietario,
                                         string placa,
                                         string cor,
                                         string modelo) 
@@ -81,9 +81,9 @@ public class PatioTestes : IDisposable
         //var estacionamento = new Patio();
         estacionamento.RegistrarEntradaVeiculo(veiculo);
 
-        var consultado = estacionamento.PesquisaVeiculoNoPatio(placa);
+        var consultado = estacionamento.PesquisaVeiculoNoPatio(veiculo.IdTicket);
 
-        Assert.Equal(placa, consultado.Placa);
+        Assert.Contains("### TICKET ESTACIONAMENTO ###", consultado.Ticket);
     }
 
     [Fact]

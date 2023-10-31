@@ -6,7 +6,11 @@ public class Veiculo
     private string _placa;
     private string _proprietario;
     private TipoDeVeiculo _tipo;
+    private string _ticket;
      
+    public string IdTicket { get; set; }
+    public string Ticket { get => _ticket; set => _ticket = value; }
+
     //Propriedades   
 
     public string Placa
@@ -20,7 +24,7 @@ public class Veiculo
             // Checa se o valor possui pelo menos 8 caracteres
             if (value.Length != 8)
             {
-                throw new FormatException(" A placa deve possuir 8 caracteres");
+                throw new FormatException("A placa deve possuir 8 caracteres");
             }
             for (int i = 0; i < 3; i++)
             {

@@ -25,7 +25,8 @@ public class Patio
 
     public void RegistrarEntradaVeiculo(Veiculo veiculo)
     {
-        veiculo.HoraEntrada = DateTime.Now;            
+        veiculo.HoraEntrada = DateTime.Now; 
+        this.GerarTicket(veiculo);           
         this.Veiculos.Add(veiculo);            
     }
 
@@ -73,10 +74,10 @@ public class Patio
         return informacao;
     }
 
-    public Veiculo PesquisaVeiculoNoPatio(string placa) {
+    public Veiculo PesquisaVeiculoNoPatio(string IdTicket) {
 
         var encontrado = (from veiculo in this.Veiculos
-                          where veiculo.Placa == placa
+                          where veiculo.IdTicket == IdTicket
                           select veiculo).SingleOrDefault();
 
         return encontrado;
@@ -90,4 +91,15 @@ public class Patio
         veiculot.AlterarDadosDoVeiculo(veiculoAlterado);
         return veiculot;
     }
+
+    private string GerarTicket(Veiculo veiculo)
+    {
+        veiculo.IdTicket = new Guid().ToString().Substring(0,5);
+        string ticket = "### TICKET ESTACIONAMENTO ###" +
+                        $">>> IDENTIFICADOR: {veiculo.IdTicket}"+
+                        $">>> DATA/HORA DE ENTRADA {DateTime.Now}"+
+                        $">>> PLACA DO VEICULO {veiculo.Placa}";
+        veiculo.Ticket = ticket;
+        return ticket;
+    }    
 }

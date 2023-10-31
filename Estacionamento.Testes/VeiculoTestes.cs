@@ -83,6 +83,17 @@ public class VeiculoTestes : IDisposable
         );
     }
 
+    [Fact]
+    public void TestaMensagemDeExcecaoDosCaracteresDaPlaca()
+    {
+        string placa = "ASDK-1234";
+        var mensagem = Assert.Throws<FormatException>(
+            () => new Veiculo().Placa = placa
+        );
+
+        Assert.Equal("A placa deve possuir 8 caracteres",mensagem.Message);
+    }
+
     public void Dispose()
     {
       SaidaConsoleTeste.WriteLine("Dispose :)");
