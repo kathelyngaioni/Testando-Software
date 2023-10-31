@@ -1,13 +1,27 @@
 namespace Estacionamento.Testes;
 
-public class PatioTestes
+public class PatioTestes : IDisposable
 {
+
+    private Veiculo veiculo;
+    private Patio estacionamento;
+    public ITestOutputHelper SaidaConsoleTeste { get; }
+
+    //construtor
+    public PatioTestes(ITestOutputHelper saidaConsoleTeste) {
+
+      SaidaConsoleTeste = saidaConsoleTeste;
+      SaidaConsoleTeste.WriteLine("Isso é uma mensagem de teste :)");
+      veiculo = new Veiculo();
+      estacionamento = new Patio();
+    }
+
     [Fact]
-    public void ValidaFaturamento()
+    public void ValidaFaturamentoDoEstacionamentoComUmVeiculo()
     {
       //Arrange
-      var estacionamento = new Patio();
-      var veiculo = new Veiculo();
+      //var estacionamento = new Patio();
+      //var veiculo = new Veiculo();
       veiculo.Proprietario = "Kathelyn Gaioni";
       veiculo.Tipo = TipoVeiculo.Automovel;
       veiculo.Cor = "Azul";
@@ -25,7 +39,6 @@ public class PatioTestes
 
     }
 
-    //só não sei como o codigo sabe da ordem desses parâmetros
     [Theory]
     [InlineData("Kathelyn Gaioni","KOH-1234", "Azul", "Fusca")]
     [InlineData("Jose Silva","POT-9242", "Cinza", "Fusca")]
@@ -35,13 +48,13 @@ public class PatioTestes
                                                     string cor,
                                                     string modelo) 
     {
-        var veiculo = new Veiculo();
+       // var veiculo = new Veiculo();
         veiculo.Proprietario = proprietario;
         veiculo.Placa = placa;
         veiculo.Cor = cor;
         veiculo.Modelo = modelo;
 
-        var estacionamento = new Patio();
+        //var estacionamento = new Patio();
         estacionamento.RegistrarEntradaVeiculo(veiculo);
         estacionamento.RegistrarSaidaVeiculo(veiculo.Placa);
 
@@ -54,18 +67,18 @@ public class PatioTestes
 
     [Theory]
     [InlineData("Kathelyn Gaioni","KOH-1234", "Azul", "Fusca")]
-    public void LocalizaVeiculoNoPatio( string proprietario,
+    public void LocalizaVeiculoNoPatioComBaseNaPlaca( string proprietario,
                                         string placa,
                                         string cor,
                                         string modelo) 
     {
-        var veiculo = new Veiculo();
+        //var veiculo = new Veiculo();
         veiculo.Proprietario = proprietario;
         veiculo.Placa = placa;
         veiculo.Cor = cor;
         veiculo.Modelo = modelo;
 
-        var estacionamento = new Patio();
+        //var estacionamento = new Patio();
         estacionamento.RegistrarEntradaVeiculo(veiculo);
 
         var consultado = estacionamento.PesquisaVeiculoNoPatio(placa);
@@ -74,9 +87,9 @@ public class PatioTestes
     }
 
     [Fact]
-    public void AlterarDadosDoVeiculo() {
-      Patio estacionamento = new Patio();
-      Veiculo veiculo = new Veiculo();
+    public void AlterarDadosDoVeiculoDoProprioVeiculo() {
+      //Patio estacionamento = new Patio();
+      //Veiculo veiculo = new Veiculo();
       veiculo.Proprietario = "Kathelyn Gaioni";
       veiculo.Tipo = TipoVeiculo.Automovel;
       veiculo.Cor = "Azul";
@@ -95,6 +108,11 @@ public class PatioTestes
 
       Assert.Equal(alterado.Placa, veiculoAlterado.Placa);
 
+    }
+
+    public void Dispose()
+    {
+      SaidaConsoleTeste.WriteLine("Dispose :)");
     }
 }
 

@@ -6,18 +6,30 @@ Act -> agir
 Assert -> afirmar
 */
 
-public class VeiculoTestes
-{
-    /* [Trait] funciona como chave e valor
-        Serve para agrupar os testes.
-    */
+/* 
+    Uso do ITestOutputHelper seria para printar mensagens na tela dos testes
+*/
 
+public class VeiculoTestes : IDisposable
+{
+
+    private Veiculo veiculo;
+    public ITestOutputHelper SaidaConsoleTeste { get; }
+
+
+    //construtor com saida no console
+    public VeiculoTestes(ITestOutputHelper saidaConsoleTeste )
+    {
+        SaidaConsoleTeste = saidaConsoleTeste;
+        SaidaConsoleTeste.WriteLine("Isso é uma mensagem de teste :)");
+        veiculo = new Veiculo();
+    }
+    
     [Fact]
-    [Trait("Funcionalidade","Acelerar")]
-    public void TestaVeiculoAcelerar()
+    public void TestaVeiculoAcelerarComParâmetro10()
     {
         //Arrange
-        var veiculo = new Veiculo();
+        //var veiculo = new Veiculo();
 
         //Act
         veiculo.Acelerar(10);
@@ -26,12 +38,11 @@ public class VeiculoTestes
         Assert.Equal(100,veiculo.VelocidadeAtual); //resultado esperado
     }
 
-
+    //O DisplayName vai ser o nome que vai aparecer
     [Fact(DisplayName = "Teste número 2")]
-    [Trait("Funcionalidade","Frear")]
     public void TestaVeiculoFrear()
     {
-        var veiculo = new Veiculo();
+        //var veiculo = new Veiculo();
         veiculo.Frear(10);
         Assert.Equal(-150,veiculo.VelocidadeAtual); //resultado esperado
     }
@@ -46,17 +57,22 @@ public class VeiculoTestes
     [Fact]
     public void DadosVeiculo() {
 
-        Veiculo carro = new Veiculo();
-        carro.Proprietario = "Kathelyn Gaioni";
-        carro.Tipo = TipoVeiculo.Automovel;
-        carro.Cor = "Azul";
-        carro.Modelo = "Fusca";
-        carro.Placa = "KOH-1234";
+        Veiculo veiculo = new Veiculo();
+        veiculo.Proprietario = "Kathelyn Gaioni";
+        veiculo.Tipo = TipoVeiculo.Automovel;
+        veiculo.Cor = "Azul";
+        veiculo.Modelo = "Fusca";
+        veiculo.Placa = "KOH-1234";
 
-        string dados = carro.ToString();
+        string dados = veiculo.ToString();
 
         Assert.Contains("Ficha do Veiculo:", dados);
 
+    }
+
+    public void Dispose()
+    {
+      SaidaConsoleTeste.WriteLine("Dispose :)");
     }
 
 }
