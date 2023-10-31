@@ -1,12 +1,11 @@
 namespace Estacionamento.Modelos;
 
-
 public class Veiculo
 {
     //Campos    
     private string _placa;
     private string _proprietario;
-    private TipoVeiculo _tipo;
+    private TipoDeVeiculo _tipo;
      
     //Propriedades   
 
@@ -63,11 +62,22 @@ public class Veiculo
     public string Modelo { get; set; }        
     public string Proprietario
     {
-        get; set;
+        get
+        {
+            return _proprietario;
+        }
+        set
+        {
+            if(value.Length < 3)
+            {
+                throw new FormatException("Nome do proprietário possui menos do que 3 caracteres");
+            }
+            _proprietario = value;
+        }
     }
     public DateTime HoraEntrada { get; set; }
     public DateTime HoraSaida { get; set; }   
-    public TipoVeiculo Tipo { get => _tipo; set => _tipo = value; }
+    public TipoDeVeiculo Tipo { get => _tipo; set => _tipo = value; }
 
     //Métodos
     public void Acelerar(int tempoSeg)
@@ -83,7 +93,7 @@ public class Veiculo
     //Construtor
     public Veiculo()
     {
-
+        
     }
 
     public Veiculo(string proprietario)

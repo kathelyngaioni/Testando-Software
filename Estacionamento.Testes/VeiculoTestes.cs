@@ -59,7 +59,7 @@ public class VeiculoTestes : IDisposable
 
         Veiculo veiculo = new Veiculo();
         veiculo.Proprietario = "Kathelyn Gaioni";
-        veiculo.Tipo = TipoVeiculo.Automovel;
+        veiculo.Tipo = TipoDeVeiculo.Automovel;
         veiculo.Cor = "Azul";
         veiculo.Modelo = "Fusca";
         veiculo.Placa = "KOH-1234";
@@ -68,6 +68,19 @@ public class VeiculoTestes : IDisposable
 
         Assert.Contains("Ficha do Veiculo:", dados);
 
+    }
+
+    [Fact]
+    public void TestaNomeProprietarioComMenosDeTresCaracteres() 
+    {
+        //Arrange
+        string nomeDoProprietario= "AB";
+
+        //Assert
+        Assert.Throws<FormatException>(
+            //Act
+            () => new Veiculo(nomeDoProprietario)
+        );
     }
 
     public void Dispose()

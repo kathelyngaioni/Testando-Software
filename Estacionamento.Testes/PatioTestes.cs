@@ -23,7 +23,7 @@ public class PatioTestes : IDisposable
       //var estacionamento = new Patio();
       //var veiculo = new Veiculo();
       veiculo.Proprietario = "Kathelyn Gaioni";
-      veiculo.Tipo = TipoVeiculo.Automovel;
+      veiculo.Tipo = TipoDeVeiculo.Automovel;
       veiculo.Cor = "Azul";
       veiculo.Modelo = "Fusca";
       veiculo.Placa = "KOH-1234";
@@ -91,7 +91,7 @@ public class PatioTestes : IDisposable
       //Patio estacionamento = new Patio();
       //Veiculo veiculo = new Veiculo();
       veiculo.Proprietario = "Kathelyn Gaioni";
-      veiculo.Tipo = TipoVeiculo.Automovel;
+      veiculo.Tipo = TipoDeVeiculo.Automovel;
       veiculo.Cor = "Azul";
       veiculo.Modelo = "Fusca";
       veiculo.Placa = "KOH-1234";
@@ -115,5 +115,3 @@ public class PatioTestes : IDisposable
       SaidaConsoleTeste.WriteLine("Dispose :)");
     }
 }
-
-

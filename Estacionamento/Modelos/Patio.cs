@@ -41,14 +41,14 @@ public class Patio
                 v.HoraSaida = DateTime.Now;
                 TimeSpan tempoPermanencia = v.HoraSaida - v.HoraEntrada;
                 double valorASerCobrado = 0;
-                if (v.Tipo == TipoVeiculo.Automovel)
+                if (v.Tipo == TipoDeVeiculo.Automovel)
                 {
                     /// o método Math.Ceiling(), aplica o conceito de teto da matemática onde o valor máximo é o inteiro imediatamente posterior a ele.
                     /// Ex.: 0,9999 ou 0,0001 teto = 1
                     /// Obs.: o conceito de chão é inverso e podemos utilizar Math.Floor();
                     valorASerCobrado = Math.Ceiling(tempoPermanencia.TotalHours) * 2;
                 }
-                if (v.Tipo == TipoVeiculo.Motocicleta)
+                if (v.Tipo == TipoDeVeiculo.Motocicleta)
                 {
                     valorASerCobrado = Math.Ceiling(tempoPermanencia.TotalHours) * 1;
                 }
@@ -91,4 +91,3 @@ public class Patio
         return veiculot;
     }
 }
-
