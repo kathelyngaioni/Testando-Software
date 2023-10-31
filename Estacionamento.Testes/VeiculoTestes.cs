@@ -42,7 +42,6 @@ public class VeiculoTestes : IDisposable
     [Fact(DisplayName = "Teste número 2")]
     public void TestaVeiculoFrear()
     {
-        //var veiculo = new Veiculo();
         veiculo.Frear(10);
         Assert.Equal(-150,veiculo.VelocidadeAtual); //resultado esperado
     }

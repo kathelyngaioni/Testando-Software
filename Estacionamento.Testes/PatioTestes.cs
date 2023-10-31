@@ -5,6 +5,7 @@ public class PatioTestes : IDisposable
 
     private Veiculo veiculo;
     private Patio estacionamento;
+    private Operador operador;
     public ITestOutputHelper SaidaConsoleTeste { get; }
 
     //construtor
@@ -14,14 +15,14 @@ public class PatioTestes : IDisposable
       SaidaConsoleTeste.WriteLine("Isso é uma mensagem de teste :)");
       veiculo = new Veiculo();
       estacionamento = new Patio();
+      operador = new Operador();
+      operador.Nome = "Pedro Fagundes";
     }
 
     [Fact]
     public void ValidaFaturamentoDoEstacionamentoComUmVeiculo()
     {
-      //Arrange
-      //var estacionamento = new Patio();
-      //var veiculo = new Veiculo();
+      estacionamento.OperadorPatio = operador;
       veiculo.Proprietario = "Kathelyn Gaioni";
       veiculo.Tipo = TipoDeVeiculo.Automovel;
       veiculo.Cor = "Azul";
@@ -48,13 +49,12 @@ public class PatioTestes : IDisposable
                                                     string cor,
                                                     string modelo) 
     {
-       // var veiculo = new Veiculo();
         veiculo.Proprietario = proprietario;
         veiculo.Placa = placa;
         veiculo.Cor = cor;
         veiculo.Modelo = modelo;
 
-        //var estacionamento = new Patio();
+        estacionamento.OperadorPatio = operador;
         estacionamento.RegistrarEntradaVeiculo(veiculo);
         estacionamento.RegistrarSaidaVeiculo(veiculo.Placa);
 
@@ -72,13 +72,12 @@ public class PatioTestes : IDisposable
                                         string cor,
                                         string modelo) 
     {
-        //var veiculo = new Veiculo();
+        estacionamento.OperadorPatio = operador;
         veiculo.Proprietario = proprietario;
         veiculo.Placa = placa;
         veiculo.Cor = cor;
         veiculo.Modelo = modelo;
 
-        //var estacionamento = new Patio();
         estacionamento.RegistrarEntradaVeiculo(veiculo);
 
         var consultado = estacionamento.PesquisaVeiculoNoPatio(veiculo.IdTicket);
@@ -87,9 +86,9 @@ public class PatioTestes : IDisposable
     }
 
     [Fact]
-    public void AlterarDadosDoVeiculoDoProprioVeiculo() {
-      //Patio estacionamento = new Patio();
-      //Veiculo veiculo = new Veiculo();
+    public void AlterarDadosDoVeiculoDoProprioVeiculo()
+    {
+      estacionamento.OperadorPatio = operador;
       veiculo.Proprietario = "Kathelyn Gaioni";
       veiculo.Tipo = TipoDeVeiculo.Automovel;
       veiculo.Cor = "Azul";

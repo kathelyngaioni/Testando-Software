@@ -3,15 +3,19 @@ namespace Estacionamento.Modelos;
 public class Patio
 {
        
+    private List<Veiculo> veiculos;
+    private double faturado;
+    private Operador _operador;
+
     public Patio()
     {
         Faturado = 0;
         veiculos = new List<Veiculo>();
     }
-    private List<Veiculo> veiculos;
-    private double faturado;
     public double Faturado { get => faturado; set => faturado = value; }
-    public List<Veiculo> Veiculos { get => veiculos; set => veiculos = value; }       
+    public List<Veiculo> Veiculos { get => veiculos; set => veiculos = value; }  
+    public Operador OperadorPatio { get => _operador; set => _operador = value;}
+
     public double TotalFaturado()
     {
         return this.Faturado;
@@ -98,7 +102,8 @@ public class Patio
         string ticket = "### TICKET ESTACIONAMENTO ###" +
                         $">>> IDENTIFICADOR: {veiculo.IdTicket}"+
                         $">>> DATA/HORA DE ENTRADA {DateTime.Now}"+
-                        $">>> PLACA DO VEICULO {veiculo.Placa}";
+                        $">>> PLACA DO VEICULO {veiculo.Placa}"+
+                        $">>> OPERADOR PATIO {this.OperadorPatio.Nome}";
         veiculo.Ticket = ticket;
         return ticket;
     }    
